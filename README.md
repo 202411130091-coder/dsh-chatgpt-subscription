@@ -62,6 +62,7 @@ Codex 主控、DSH 执行的通用桥接器与匿名盲测已拆分到独立项�
 .
 ├── README.md                  # 本文件
 ├── LICENSE                    # MIT（第三方组件各保留原许可）
+├── THIRD_PARTY_NOTICES.md     # 第三方组件许可与条款提示
 ├── docs/
 │   └── guide.zh.md            # 完整部署教程 + 排坑清单
 ├── dsh/

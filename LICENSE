@@ -19,14 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-本仓库只包含「配置模板 + 说明文档 + 部署脚本」，**不包含、也不重新分发**以下第三方组件，
-它们各自保留原许可，使用前请自行查阅：
-
-- Sub2API（https://github.com/Wei-Shaw/sub2api） — 其项目自身的许可证与免责声明
-- PostgreSQL（EnterpriseDB 便携二进制，PostgreSQL License）
-- Redis for Windows（https://github.com/zkteco-home/redis-windows）— BSD-3-Clause
-- zoneinfo 时区数据（Go 官方仓库 lib/time/zoneinfo.zip）
-- DeepSeek Harness（DSH）
