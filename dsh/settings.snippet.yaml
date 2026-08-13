@@ -1,0 +1,71 @@
+# =============================================================================
+# DSH 配置片段：把 Sub2API（ChatGPT 订阅桥）注册成一个 provider
+# =============================================================================
+#
+# 用法：
+#   1. 把下面整个 `llm-pi-ai:` 段合并进 DSH 的 settings.yaml
+#      （路径：$DSH_HOME/settings.yaml，默认 C:\Users\<你>\.dsh\settings.yaml）。
+#      如果已有 `llm-pi-ai:` 段，就把它并到 `providers:` 下面。
+#   2. 把网关的 API Key 写进 DSH 凭据文件（$DSH_HOME/.credentials.yaml）：
+#          SUB2API_API_KEY: sk-xxxx   # 在 Sub2API 管理面板里创建的那把 key
+#      注意：这里只写引用名 apiKeyEnv，绝不把真实 key 写进本文件。
+#   3. 改完后刷新 DSH 网页即可（settings 会热加载；不放心就重启 DSH）。
+#
+# ⚠️ baseURL 的端口要和 Sub2API 实际监听端口一致（默认 8080）。
+# ⚠️ 模型 id 必须和网关 `GET /v1/models` 返回的 id 完全一致（上游目录会变，
+#    以你实际部署时网关返回为准，别照抄历史列表）。
+# =============================================================================
+
+llm-pi-ai:
+  providers:
+    chatgpt-sub:
+      displayName: ChatGPT Plus (sub2api)      # DSH 模型选择器里显示的名字
+      apiKeyEnv: SUB2API_API_KEY              # 凭据引用名，别写真实 key
+      api: openai-completions                 # 网关走 OpenAI Chat Completions 协议
+      baseURL: http://127.0.0.1:8080/v1       # 改成你的网关地址
+      models:
+        # —— gpt-5.6 系列（上下文 272K / 最大输出 128K）——
+        # sol 支持显式推理强度，档位映射已按实测写死（off→none，其余原样透传）
+        - id: gpt-5.6-sol
+          name: GPT-5.6 Sol
+          contextWindow: 272000
+          maxTokens: 128000
+          reasoningEfforts:
+            off: none
+            low: low
+            medium: medium
+            high: high
+            xhigh: xhigh
+            max: max
+        - id: gpt-5.6
+          name: GPT-5.6
+          contextWindow: 272000
+          maxTokens: 128000
+        - id: gpt-5.6-terra
+          name: GPT-5.6 Terra
+          contextWindow: 272000
+          maxTokens: 128000
+        - id: gpt-5.6-luna
+          name: GPT-5.6 Luna
+          contextWindow: 272000
+          maxTokens: 128000
+        - id: gpt-5.5
+          name: GPT-5.5
+          contextWindow: 272000
+          maxTokens: 128000
+        - id: gpt-5.4
+          name: GPT-5.4
+          contextWindow: 272000
+          maxTokens: 128000
+        - id: gpt-5.4-mini
+          name: GPT-5.4 Mini
+          contextWindow: 400000
+          maxTokens: 128000
+        - id: gpt-5.3-codex-spark
+          name: GPT-5.3 Codex Spark
+          contextWindow: 128000
+          maxTokens: 32000
+        - id: gpt-5.2
+          name: GPT-5.2
+          contextWindow: 400000
+          maxTokens: 128000

@@ -1,0 +1,27 @@
+# --- 运行时产物 / 第三方二进制（一律不入库）---
+runtime/
+downloads/
+pgdata/
+*.zip
+
+# --- 本地密钥与配置（绝不可提交）---
+*.credentials.yaml
+.credentials.yaml
+pgpw.txt
+secrets.txt
+oauth-session.json
+config.yaml
+.installed
+
+# --- 日志 / 临时 ---
+*.log
+logs/
+pages/
+__pycache__/
+*.pyc
+
+# --- 系统 / 编辑器 ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
